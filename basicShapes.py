@@ -11,6 +11,7 @@ def setup():
 def main():
     done = False
     isBlue = True
+    color = ((0,0,0))
     while not done:
         screen.fill((0,0,0))
         #go through event queue
@@ -20,9 +21,11 @@ def main():
             if e.type == p.KEYDOWN and e.key == p.K_DOWN:
                 isBlue = not isBlue
         if (isBlue):
-            screen.fill((0,0,255))
+            color = ((0,0,255))
         else:
-            screen.fill((0,0,0))
+            color = ((0,0,0))
+        rectangle1 = p.Rect(0,0,400,200)
+        p.draw.rect(screen, color, rectangle1)
         p.display.flip() #redraws the display
         clock.tick(30) #30fps
     
