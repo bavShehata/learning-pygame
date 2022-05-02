@@ -11,7 +11,10 @@ def setup():
 def main():
     done = False
     isBlue = True
-    color = ((0,0,0))
+    x = 0
+    y = 0
+    w = 200
+    h = 100
     while not done:
         screen.fill((0,0,0))
         #go through event queue
@@ -24,8 +27,9 @@ def main():
             color = ((0,0,255))
         else:
             color = ((0,0,0))
-        rectangle1 = p.Rect(0,0,400,200)
-        p.draw.rect(screen, color, rectangle1)
+        for i in range(10):
+            rectangle1 = p.Rect(x + 10*i, y + 10*i, w, h)
+            p.draw.rect(screen, color, rectangle1)
         p.display.flip() #redraws the display
         clock.tick(30) #30fps
     
